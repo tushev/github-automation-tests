@@ -45,7 +45,6 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-        dotnet-version: 6.0.x
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
         # Prefix the list here with "+" to use these queries and those in the config file.
@@ -62,11 +61,16 @@ jobs:
     # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
+    
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
 
     - run: |
-         dotnet restore "src\GitHubAutomationTests.sln"
-         dotnet build "src\GitHubAutomationTests.sln" --no-restore
-         dotnet test --no-build --verbosity normal "src\GitHubAutomationTests.sln"
+       dotnet restore "src\GitHubAutomationTests.sln"
+       dotnet build "src\GitHubAutomationTests.sln" --no-restore
+       dotnet test --no-build --verbosity normal "src\GitHubAutomationTests.sln"
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
