@@ -1,1 +1,2 @@
 # github-automation-tests
+[![.NET](https://github.com/tushev/github-automation-tests/actions/workflows/dotnet.yml/badge.svg)](https://github.com/tushev/github-automation-tests/actions/workflows/dotnet.yml) [![CodeQL](https://github.com/tushev/github-automation-tests/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/tushev/github-automation-tests/actions/workflows/codeql-analysis.yml)
